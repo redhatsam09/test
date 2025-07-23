@@ -1,5 +1,5 @@
 #!/bin/bash
-# Git Sitcom - Wrapper Script for Git Commands
+# Git Laugh - Script for Git Commands with funny sounds
 # Plays custom sounds when Git commands are executed
 
 # Directory where hooks and sounds are stored
