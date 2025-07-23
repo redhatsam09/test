@@ -1,5 +1,5 @@
 #!/bin/bash
-# Git Sitcom - Installation Script
+# Git Laugh - Installation Script
 # Automatically installs audio players and configures git hooks
 
 # Colors for output
@@ -8,7 +8,7 @@ RED='\033[0;31m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-echo -e "${YELLOW}Git Sitcom - Installation Script${NC}"
+echo -e "${YELLOW}Git Laugh - Installation Script${NC}"
 echo -e "${YELLOW}=============================${NC}"
 
 # Directory where this script is located
@@ -107,7 +107,7 @@ install_audio_player
 echo -e "${YELLOW}Creating git wrapper script...${NC}"
 cat > "$HOOK_DIR/git-wrapper" << 'WRAPPER'
 #!/bin/bash
-# Git Sitcom - Wrapper Script for Git Commands
+# Git Laugh - Wrapper Script for Git Commands
 # Plays custom sounds when Git commands are executed
 
 # Directory where hooks and sounds are stored
@@ -230,14 +230,14 @@ echo -e "${GREEN}Git wrapper script created!${NC}"
 add_to_profile() {
     local profile="$1"
     if [ -f "$profile" ]; then
-        if ! grep -q "# Git Sitcom" "$profile" &>/dev/null; then
+        if ! grep -q "# Git Laugh" "$profile" &>/dev/null; then
             echo "" >> "$profile"
-            echo "# Git Sitcom" >> "$profile"
+            echo "# Git Laugh" >> "$profile"
             echo "alias git='$HOOK_DIR/git-wrapper'" >> "$profile"
-            echo -e "${GREEN}Added Git Sitcom alias to $profile${NC}"
+            echo -e "${GREEN}Added Git Laugh alias to $profile${NC}"
             return 0
         else
-            echo -e "${YELLOW}Git Sitcom alias already exists in $profile${NC}"
+            echo -e "${YELLOW}Git Laugh alias already exists in $profile${NC}"
             return 1
         fi
     fi
@@ -265,7 +265,7 @@ if [ "$OS" == "windows" ]; then
         powershell.exe -Command "if (!(Test-Path -Path \$PROFILE -PathType Leaf)) { New-Item -Path \$PROFILE -ItemType File -Force }" &>/dev/null
         
         # Add function to PowerShell profile
-        powershell.exe -Command "if (!(Select-String -Path \$PROFILE -Pattern 'Git-Sitcom')) { Add-Content -Path \$PROFILE -Value \"`n# Git Sitcom`nfunction Git { & '$HOOK_DIR/git-wrapper' `$args }\" }" &>/dev/null
+        powershell.exe -Command "if (!(Select-String -Path \$PROFILE -Pattern 'Git-Laugh')) { Add-Content -Path \$PROFILE -Value \"`n# Git Laugh`nfunction Git { & '$HOOK_DIR/git-wrapper' `$args }\" }" &>/dev/null
         
         echo -e "${GREEN}Added Git function to PowerShell profile!${NC}"
         echo -e "${YELLOW}Note: On Windows, use 'Git' (capital G) for sounds to play.${NC}"
@@ -273,7 +273,7 @@ if [ "$OS" == "windows" ]; then
 fi
 
 echo -e "${GREEN}Installation complete!${NC}"
-echo -e "${YELLOW}To use Git Sitcom immediately, restart your terminal or run:${NC}"
+echo -e "${YELLOW}To use Git Laugh immediately, restart your terminal or run:${NC}"
 
 if [ "$OS" == "windows" ]; then
     echo -e "Open a new PowerShell window and use 'Git' instead of 'git'"
